@@ -79,9 +79,9 @@ body{
 }
 
 .notification{
-    background-color: rgb(67, 79, 236);
-    height: 30vmin;
-    width: 80vmin;
+    background-color: #776bd6;
+    height: 25vmin;
+    width: 70vmin;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -92,6 +92,7 @@ body{
     justify-content: center;
     display:none;
     flex-direction: column;
+    gap: 20px;
     
 }
 
