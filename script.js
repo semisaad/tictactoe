@@ -1,6 +1,16 @@
 let boxes = document.querySelectorAll('.box');
-let resetbtn = document.querySelector('#resetbtn');
+let resetbtn = document.querySelector('#reset');
 let turn = true;
+let ntf = document.querySelector('.notification');
+let msg = document.querySelector('#msg');
+let okbtn = document.querySelector('#ok'); 
+
+const resetGame = () => {
+    boxes.forEach((box) => {
+        box.innerText = '';
+    });
+    turn = true;
+}
 
 const winPatterns = [
     [0, 1, 2],
@@ -20,7 +30,6 @@ boxes.forEach((box) => {
                 box.innerText = turn ? 'X' : 'O';
                 turn = !turn;
             }
-
             checkWinner();
         });
 });
@@ -32,8 +41,18 @@ const checkWinner = () => {
         let pos3val = boxes[pattern[2]].innerText;
 
         if (pos1val !== '' && pos1val === pos2val && pos2val === pos3val) {
-            alert(`${pos1val} wins!`);
+            
+            ntf.style.display = 'flex'; 
+            msg.innerText = `Player ${pos1val} Wins!`;
             resetGame();
         }
     })
 }
+
+resetbtn.addEventListener('click', resetGame);
+
+okbtn.addEventListener('click', () => {
+    ntf.style.display = 'none';
+});
+
+
